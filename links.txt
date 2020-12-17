@@ -1,0 +1,11 @@
+https://translate.google.com/translate?sl=auto&tl=pt&u=https://ru.warface.com/wiki/index.php/API
+
+
+http://api.wf.my.com/user/stat/?name=Koez-&server=2
+http://api.wf.my.com/rating/clan?server=2
+
+
+http://api.wf.my.com/rating/monthly?server=2&clan=IMPERIO-AZTECA
+
+
+IMPERIO-AZTECA
