@@ -4,8 +4,18 @@ https://translate.google.com/translate?sl=auto&tl=pt&u=https://ru.warface.com/wi
 http://api.wf.my.com/user/stat/?name=Koez-&server=2
 http://api.wf.my.com/rating/clan?server=2
 
+http://api.wf.my.com/user/achievements/?name=JustNmd&server=1
 
 http://api.wf.my.com/rating/monthly?server=2&clan=IMPERIO-AZTECA
 
 
+
+
+
 IMPERIO-AZTECA
+
+
+
+sv
+br/eu = 1
+na = 2
