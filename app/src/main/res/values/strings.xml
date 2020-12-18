@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WF Stats</string>
+    <string name="player_stats">Player Stats</string>
+    <string name="clan_stats">Clan Stats</string>
 </resources>
