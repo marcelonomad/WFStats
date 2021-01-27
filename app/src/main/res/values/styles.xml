@@ -5,10 +5,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="background">@color/colorPrimary</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <!--<item name="android:background">@color/colorPrimary</item>
+<item name="cardBackgroundColor">@color/cardBackgroud</item>-->
         <item name="font">@font/warface</item>
         <item name="fontFamily">@font/warface</item>
+        <!--<item name="android:textColor">@color/text</item>-->
+        <item name="android:textColor">@color/colorPrimary</item>
+
     </style>
 
 </resources>

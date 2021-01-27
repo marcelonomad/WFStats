@@ -2,4 +2,19 @@
     <string name="app_name">WF Stats</string>
     <string name="player_stats">Player Stats</string>
     <string name="clan_stats">Clan Stats</string>
+    <string name="playernickname">Nomad</string>
+    <string name="clan">clan</string>
+    <string name="pvp">PVP</string>
+    <string name="kills">Kills</string>
+    <string name="deaths">Deaths</string>
+    <string name="friendlykills">Friendly Kills</string>
+    <string name="kd">KD</string>
+    <string name="pvp_wins">Wins</string>
+    <string name="pvp_loses">Loses</string>
+    <string name="playtime">Playtime</string>
+    <string name="favorite_class">Favorite Class</string>
+    <string name="type_player">Type Player Name</string>
+    <string name="select_server">Select Server</string>
+    <string name="find_player">Find Player</string>
+    <string name="error_finding_player">There was an error. Check if you are connected or the player name entered is correct.</string>
 </resources>
