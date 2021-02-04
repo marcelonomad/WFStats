@@ -38,9 +38,11 @@ class PlayerStats : AppCompatActivity() {
     fun getPlayer() {
         val retrofitClient = NetworkUtils
             .getRetrofitInstance()
-        var a = txtPlayerName.text.toString()
         val endpoint = retrofitClient.create(Endpoint::class.java)
-        val callback = endpoint.getPlayer(txtPlayerName.text.toString(), 1)
+        val callback = endpoint.getPlayer(
+            txtPlayerName.text.toString(),
+            (spnServer.selectedItem as ServerCode).code
+        )
 
         callback.enqueue(object : Callback<Player> {
             override fun onFailure(call: Call<Player>, t: Throwable) {
@@ -75,7 +77,11 @@ class PlayerStats : AppCompatActivity() {
 
     }
 
-    fun getServer(): Array<ServerCode> {
-        return ServerCode.values().asList().toTypedArray()
+    fun getServer(): List<ServerCode> {
+        val list = mutableListOf<ServerCode>()
+        list.add(ServerCode(1, "EU", "https://i.imgur.com/Gi12J2d.png"))
+        list.add(ServerCode(2, "NA", "https://i.imgur.com/ncU8VFo.png"))
+        return list
+
     }
 }

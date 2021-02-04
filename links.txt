@@ -2,27 +2,11 @@ https://translate.google.com/translate?sl=auto&tl=pt&u=https://ru.warface.com/wi
 
 
 http://api.wf.my.com/user/stat/?name=JustNmd&server=1
-http://api.wf.my.com/rating/clan=ALEXANDER?server=1
-http://api.wf.my.com/rating/top100?server=2
-http://api.wf.my.com/rating/?server=2&clan=IMPERIO-AZTECA&members
-
 
 http://api.wf.my.com/user/achievements/?name=JustNmd&server=1
 
-http://api.wf.my.com/rating/monthly?server=2&clan=N.K.G
-http://api.wf.my.com/rating/?server=2&clan=N.K.G
-
-http://api.wf.my.com/rating/clan/
-
-
-https://github.com/GYaniss/Warface-User-Statistics/blob/master/App_Code/HTTPGET.cs
-
-
-
-
-
-IMPERIO-AZTECA
-
+http://api.wf.my.com/rating/clan/?server=1 //rank de clas
+http://api.wf.my.com/clan/members/?server=1&clan=BLACK-GOLD //detalhes do cla
 
 
 sv

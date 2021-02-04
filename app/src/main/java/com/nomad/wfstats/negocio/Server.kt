@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.nomad.wfstats.R
 
-class Server(val context: Context, var servers: Array<ServerCode>) : BaseAdapter() {
+class Server(val context: Context, var servers: List<ServerCode>) : BaseAdapter() {
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -24,20 +25,20 @@ class Server(val context: Context, var servers: Array<ServerCode>) : BaseAdapter
             vh = view.tag as ItemHolder
         }
         vh.nameServer.text = servers[position].name
-        var id: Int
-        if (servers[position] == ServerCode.na)
-            id = R.drawable.us
-        else id = R.drawable.eubr
-        vh.imageServer.setBackgroundResource(id)
+
+        Glide.with(context)
+            .load(servers[position].urlImage)
+            .into(vh.imageServer)
+
         return view
     }
 
     override fun getItem(position: Int): Any? {
-        return null
+        return servers[position]
     }
 
     override fun getItemId(position: Int): Long {
-        return 0
+        return position.toLong()
     }
 
     override fun getCount(): Int {
@@ -50,6 +51,6 @@ class Server(val context: Context, var servers: Array<ServerCode>) : BaseAdapter
     }
 }
 
-enum class ServerCode() {
-    na, eu
+class ServerCode(val code:Int, val name: String, val urlImage: String) {
+
 }
