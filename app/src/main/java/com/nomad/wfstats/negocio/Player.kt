@@ -4,34 +4,6 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Player(
-    /*  nickname: String,
-      experience: Int,
-      rankId: Int,
-      clanId: Int,
-      clanName: String,
-      kill: Int,
-      friendlyKills: Int,
-      kills: Int,
-      death: Int,
-      kdPvp: Double,
-      coopKill: Int,
-      coopFriendlyKill: Int,
-      coopKills: Int,
-      coopDeath: Int,
-      kdCoop: Double,
-      playTime: Int,
-      hourPlaytime: Int,
-      minutePlaytime: Int,
-      favoritePvp: Int,
-      favoriteCoop: Int,
-      coopWins: Int,
-      pvpWins: Int,
-      pvpLost: Int,
-      coopLost: Int,
-      winLosePvp: Int,
-      winLoseCoop: Int,
-      winLosePvpRatio: Double*/
-
     @SerializedName("user_id")
     @Expose
     var userId: String?,
@@ -147,4 +119,46 @@ data class Player(
     @SerializedName("full_response")
     @Expose
     var fullResponse: String?
-)
+
+) {
+
+    companion object {
+        fun totalHeadshots(fullResponse: String): String {
+            val reconHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val medicHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val riflemanHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val engineerHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+
+            return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots).toString()
+        }
+
+        fun damageDealt(fullResponse: String): String =
+            fullResponse.substringAfter("<Sum> [stat]player_damage  = ")
+                .substringBefore("\n<Sum>")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

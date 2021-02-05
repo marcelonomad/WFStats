@@ -1,0 +1,25 @@
+<Sum> [stat]player_ammo_restored  = 16444
+<Sum> [stat]player_climb_assists  = 4536 //ajuda escalada coop
+<Sum> [stat]player_climb_coops  = 2807 //escalada coop
+<Sum> [mode]PVP [stat]player_kills_melee  = 635
+<Sum> [class]Recon [mode]PVP [stat]player_playtime  = 7325401
+<Sum> [class]Medic [mode]PVP [stat]player_playtime  = 12262607
+<Sum> [class]Rifleman [mode]PVP [stat]player_playtime  = 3721657
+<Sum> [class]Engineer [mode]PVP [stat]player_playtime  = 15164298
+<Sum> [class]Heavy [mode]PVP [stat]player_playtime  = 239
+<Sum> [stat]player_repair  = 1583035
+<Sum> [stat]player_resurrect_made  = 7627
+<Sum> [mode]PVP [stat]player_sessions_kicked  = 33
+<Sum> [mode]PVP [stat]player_sessions_left  = 194
+
+
+<Sum> [mode]PVE [stat]player_deaths  = 2019 //mortes do coop
+<Sum> [class]Engineer [mode]PVE [stat]player_playtime  = 3004388
+<Sum> [class]Medic [mode]PVE [stat]player_playtime  = 1549114
+<Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = 1222158
+<Sum> [class]Heavy [mode]PVE [stat]player_playtime  = 33724
+<Sum> [stat]player_resurrected_by_coin  = 839//moedas usadas
+<Sum> [mode]PVE [stat]player_sessions_kicked  = 8 //expulso do coop
+<Sum> [mode]PVE [stat]player_sessions_left  = 65
+
+

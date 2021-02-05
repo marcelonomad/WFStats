@@ -16,5 +16,9 @@
     <string name="type_player">Type Player Name</string>
     <string name="select_server">Select Server</string>
     <string name="find_player">Find Player</string>
-    <string name="error_finding_player">There was an error. Check if you are connected or the player name entered is correct.</string>
+    <string name="error_finding_player">There was an error. Check if you are connected or the player name/server entered is correct.</string>
+    <string name="headshots">Headshots</string>
+    <string name="hint_type_player">Type the player name to search</string>
+    <string name="playername">playerName</string>
+    <string name="damage_dealt">Damage Dealt</string>
 </resources>
