@@ -1,4 +1,4 @@
-package com.nomad.wfstats.negocio.util
+package com.nomad.wfstats.models.util
 
 import java.text.NumberFormat
 

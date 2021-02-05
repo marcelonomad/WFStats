@@ -1,4 +1,4 @@
-package com.nomad.wfstats.negocio
+package com.nomad.wfstats.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -21,4 +21,7 @@
     <string name="hint_type_player">Type the player name to search</string>
     <string name="playername">playerName</string>
     <string name="damage_dealt">Damage Dealt</string>
+    <string name="member">Member</string>
+    <string name="clan_points">Clan Points</string>
+    <string name="description_clan_role">Image of role for clan member</string>
 </resources>

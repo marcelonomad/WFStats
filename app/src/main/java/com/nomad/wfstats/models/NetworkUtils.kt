@@ -1,4 +1,4 @@
-package com.nomad.wfstats.negocio
+package com.nomad.wfstats.models
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

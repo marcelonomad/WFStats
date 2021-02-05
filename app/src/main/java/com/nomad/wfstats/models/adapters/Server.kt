@@ -1,4 +1,4 @@
-package com.nomad.wfstats.negocio
+package com.nomad.wfstats.models.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

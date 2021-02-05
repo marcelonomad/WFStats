@@ -1,4 +1,4 @@
-package com.nomad.wfstats.telas
+package com.nomad.wfstats.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_Player_Stats.setOnClickListener{
-            val i=Intent(this, PlayerStats::class.java)
+        btn_Player_Stats.setOnClickListener {
+            val i = Intent(this, PlayerStats::class.java)
+            startActivity(i)
+        }
+        btn_Clan_Stats.setOnClickListener {
+            val i = Intent(this, ClanStats::class.java)
             startActivity(i)
         }
     }

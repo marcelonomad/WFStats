@@ -3,6 +3,7 @@
     package="com.nomad.wfstats">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".telas.PlayerStats"></activity>
-        <activity android:name=".telas.MainActivity">
+        <activity android:name=".ui.ClanStats"></activity>
+        <activity android:name=".ui.PlayerStats" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

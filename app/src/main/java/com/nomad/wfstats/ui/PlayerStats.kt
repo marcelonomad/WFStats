@@ -1,4 +1,4 @@
-package com.nomad.wfstats.telas
+package com.nomad.wfstats.ui
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,17 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nomad.wfstats.R
-import com.nomad.wfstats.negocio.NetworkUtils
-import com.nomad.wfstats.negocio.Player
-import com.nomad.wfstats.negocio.Server
-import com.nomad.wfstats.negocio.ServerCode
-import com.nomad.wfstats.negocio.interfaces.Endpoint
-import com.nomad.wfstats.negocio.util.Formatacao
+import com.nomad.wfstats.models.NetworkUtils
+import com.nomad.wfstats.models.Player
+import com.nomad.wfstats.models.adapters.Server
+import com.nomad.wfstats.models.adapters.ServerCode
+import com.nomad.wfstats.models.interfaces.Endpoint
+import com.nomad.wfstats.models.util.Formatacao
 import kotlinx.android.synthetic.main.activity_player_stats.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.NumberFormat
 
 class PlayerStats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -125,8 +124,20 @@ class PlayerStats : AppCompatActivity() {
 
     fun getServer(): List<ServerCode> {
         val list = mutableListOf<ServerCode>()
-        list.add(ServerCode(1, "EU", "https://i.imgur.com/Gi12J2d.png"))
-        list.add(ServerCode(2, "NA", "https://i.imgur.com/ncU8VFo.png"))
+        list.add(
+            ServerCode(
+                1,
+                "EU",
+                "https://i.imgur.com/Gi12J2d.png"
+            )
+        )
+        list.add(
+            ServerCode(
+                2,
+                "NA",
+                "https://i.imgur.com/ncU8VFo.png"
+            )
+        )
         return list
 
     }
