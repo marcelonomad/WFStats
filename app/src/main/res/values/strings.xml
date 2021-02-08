@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WF Stats</string>
+    <string name="app_name" translatable="false">WF Stats</string>
     <string name="playerStats">Player Stats</string>
     <string name="clan_stats">Clan Stats</string>
     <string name="playernickname">Nomad</string>
@@ -29,4 +29,6 @@
     <string name="clan_points">Clan Points</string>
     <string name="description_clan_role">Image of role for clan member</string>
     <string name="type_clan_name">Type Clan Name</string>
+    <string name="details">Details</string>
+    <string name="coop" translatable="false">Coop</string>
 </resources>

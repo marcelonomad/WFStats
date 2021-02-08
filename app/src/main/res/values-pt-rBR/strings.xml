@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WF Stats</string>
     <string name="clan_stats">Status do Clã</string>
     <string name="playernickname">Nick</string>
     <string name="clan">Clã</string>
@@ -30,4 +29,5 @@
     <string name="description_clan_role">Imagem do cargo do membro do clã</string>
     <string name="type_clan_name">Digite o nome do clã</string>
     <string name="playerStats">Status do Jogador</string>
+    <string name="details">Detalhes</string>
 </resources>
