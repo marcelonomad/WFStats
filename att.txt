@@ -11,15 +11,57 @@
 <Sum> [stat]player_resurrect_made  = 7627
 <Sum> [mode]PVP [stat]player_sessions_kicked  = 33
 <Sum> [mode]PVP [stat]player_sessions_left  = 194
+<Sum> [mode]PVP [stat]player_kills_melee  = 635
+
+<Sum> [class]Engineer [mode]PVP [stat]player_kills_claymore  = 103
+
+
 
 
 <Sum> [mode]PVE [stat]player_deaths  = 2019 //mortes do coop
+<Sum> [mode]PVE [stat]player_kills_ai  = 111654
+
 <Sum> [class]Engineer [mode]PVE [stat]player_playtime  = 3004388
 <Sum> [class]Medic [mode]PVE [stat]player_playtime  = 1549114
 <Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = 1222158
 <Sum> [class]Heavy [mode]PVE [stat]player_playtime  = 33724
+
 <Sum> [stat]player_resurrected_by_coin  = 839//moedas usadas
 <Sum> [mode]PVE [stat]player_sessions_kicked  = 8 //expulso do coop
 <Sum> [mode]PVE [stat]player_sessions_left  = 65
+
+<Sum> [class]Heavy [mode]PVE [stat]player_headshots  = 320 //hs sed coop
+<Sum> [class]Recon [mode]PVE [stat]player_headshots  = 4765 //hs fuzil coop
+<Sum> [class]Engineer [mode]PVE [stat]player_headshots  = 22180
+<Sum> [class]Medic [mode]PVE [stat]player_headshots  = 2691
+<Sum> [class]Rifleman [mode]PVE [stat]player_headshots  = 11219
+
+<Sum> [mode]PVE [stat]player_kills_melee  = 582
+<Sum> [mode]PVE [stat]player_kills_player_friendly  = 180
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
