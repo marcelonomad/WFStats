@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WF Stats</string>
+    <string name="clan_stats">Status do Clã</string>
+    <string name="playernickname">Nick</string>
+    <string name="clan">Clã</string>
+    <string name="pvp">PVP</string>
+    <string name="kills">Eliminações</string>
+    <string name="deaths">Mortes</string>
+    <string name="friendlykills">Fogo Amigo</string>
+    <string name="kd">K/D</string>
+    <string name="pvp_wins">Vitórias</string>
+    <string name="pvp_loses">Derrotas</string>
+    <string name="favorite_class">Classe Favorita</string>
+    <string name="type_player">Digite o Nick do Jogador</string>
+    <string name="select_server">Selecione o Servidor</string>
+    <string name="find_player">Procurar Jogador</string>
+    <string name="find_clan">Procurar Clã</string>
+    <string name="playtime">Tempo de Jogo</string>
+    <string name="error_finding_player">Erro. Verifique a Internet ou se o nome do Jogador/servidor estão corretos.</string>
+    <string name="error_finding_clan">Erro. Verifique a Internet ou se o nome do clã/servidor estão corretos</string>
+    <string name="headshots">Headshots</string>
+    <string name="hint_type_player">Digite o nick do jogador para pesquisar</string>
+    <string name="hint_type_clan">Digite o nome do clã para pesquisar</string>
+    <string name="playername">playerName</string>
+    <string name="clanname">clanName</string>
+    <string name="damage_dealt">Dano Causado</string>
+    <string name="member">Membro</string>
+    <string name="clan_points">Pontos do Clã</string>
+    <string name="description_clan_role">Imagem do cargo do membro do clã</string>
+    <string name="type_clan_name">Digite o nome do clã</string>
+    <string name="playerStats">Status do Jogador</string>
+</resources>

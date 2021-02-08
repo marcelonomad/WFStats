@@ -1,15 +1,20 @@
 package com.nomad.wfstats.models.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.ClanMember
+import com.nomad.wfstats.models.util.Formatacao
 import kotlinx.android.synthetic.main.activity_player_stats.view.*
 import kotlinx.android.synthetic.main.item_clan_member.view.*
+import okhttp3.internal.Util
 
 class ClanMemberAdapter(
     private val members: List<ClanMember>,
@@ -28,7 +33,7 @@ class ClanMemberAdapter(
     override fun onBindViewHolder(holder: ClanMemberViewHolder, position: Int) {
         val member = members[position]
         holder.let {
-            it.bindView(member)
+            it.bindView(member, context)
         }
     }
 }
@@ -36,10 +41,41 @@ class ClanMemberAdapter(
 class ClanMemberViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
     private val memberName: TextView = itemview.lblMemberName
     private val memberPoints: TextView = itemview.lblMemberClanPoints
+    private val memberRole: ImageView = itemview.imgMemberRole
 
-    fun bindView(member: ClanMember) {
+    @SuppressLint("SetTextI18n")
+    fun bindView(member: ClanMember, context: Context) {
         memberName.text = member.nickname
-        memberPoints.text = member.clan_points
+        memberPoints.text = "Points: ${Formatacao.formatarNumero(member.clan_points?.toInt())}"
+        when (member.clan_role) {
+            "MASTER" -> Glide.with(context)
+                .load("https://i.imgur.com/MLPiD7a.png")
+                .into(memberRole)
+            "OFFICER" -> Glide.with(context)
+                .load("https://i.imgur.com/VYxMTX9.png")
+                .into(memberRole)
+            "REGULAR" -> memberRole.visibility = View.INVISIBLE
+        }
+
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

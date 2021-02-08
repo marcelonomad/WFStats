@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.PlayerStats">
 
     <androidx.cardview.widget.CardView
@@ -14,6 +15,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimaryLight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +36,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/type_player"
                 android:textAlignment="center"
+                android:textColor="@color/colorAccent"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +52,7 @@
                 android:ems="10"
                 android:hint="@string/type_player"
                 android:inputType="textPersonName"
+                android:textColor="@color/text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblTypePlayerName" />
@@ -60,6 +65,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/select_server"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtPlayerName" />
@@ -82,10 +88,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/rounded_button"
                 android:elevation="@dimen/cardview_default_elevation"
                 android:text="@string/find_player"
                 android:textColor="@color/text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spnServer" />
@@ -115,6 +123,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryLight"
                 app:cardBackgroundColor="@color/cardview_light_background"
                 app:cardElevation="@dimen/cardview_default_elevation"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +143,7 @@
                         android:layout_marginEnd="8dp"
                         android:text="@string/playernickname"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/text"
                         android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +165,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/app_name"
+                        android:textColor="@color/text"
                         app:layout_constraintStart_toEndOf="@+id/imgRank"
                         app:layout_constraintTop_toBottomOf="@+id/lblClan" />
 
@@ -167,6 +178,7 @@
                         android:layout_marginEnd="8dp"
                         android:text="@string/clan"
                         android:textAlignment="center"
+                        android:textColor="@color/text"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -182,6 +194,7 @@
                         android:layout_marginBottom="8dp"
                         android:text="@string/playtime"
                         android:textAlignment="center"
+                        android:textColor="@color/text"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -196,6 +209,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryLight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -222,6 +237,7 @@
                         android:layout_marginEnd="8dp"
                         android:text="@string/pvp"
                         android:textAlignment="center"
+                        android:textColor="@color/text"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -234,6 +250,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/kills"
+                        android:textColor="@color/text"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/lblPvp" />
 
@@ -244,6 +261,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/deaths"
+                        android:textColor="@color/text"
                         app:layout_constraintStart_toStartOf="@+id/guideline"
                         app:layout_constraintTop_toBottomOf="@+id/lblPvp" />
 

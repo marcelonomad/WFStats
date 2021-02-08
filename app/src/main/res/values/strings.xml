@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WF Stats</string>
-    <string name="player_stats">Player Stats</string>
+    <string name="playerStats">Player Stats</string>
     <string name="clan_stats">Clan Stats</string>
     <string name="playernickname">Nomad</string>
     <string name="clan">clan</string>
@@ -16,12 +16,17 @@
     <string name="type_player">Type Player Name</string>
     <string name="select_server">Select Server</string>
     <string name="find_player">Find Player</string>
+    <string name="find_clan">Find Clan</string>
     <string name="error_finding_player">There was an error. Check if you are connected or the player name/server entered is correct.</string>
+    <string name="error_finding_clan">There was an error. Check if you are connected or the clan name/server entered is correct.</string>
     <string name="headshots">Headshots</string>
     <string name="hint_type_player">Type the player name to search</string>
+    <string name="hint_type_clan">Type the clan name to search</string>
     <string name="playername">playerName</string>
+    <string name="clanname">clanName</string>
     <string name="damage_dealt">Damage Dealt</string>
     <string name="member">Member</string>
     <string name="clan_points">Clan Points</string>
     <string name="description_clan_role">Image of role for clan member</string>
+    <string name="type_clan_name">Type Clan Name</string>
 </resources>
