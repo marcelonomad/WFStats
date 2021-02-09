@@ -39,6 +39,9 @@
 <Sum> [mode]PVE [stat]player_kills_melee  = 582
 <Sum> [mode]PVE [stat]player_kills_player_friendly  = 180
 
+<Sum> [mode]PVE [stat]player_sessions_lost_connection  = 455
+
+
 
 
 

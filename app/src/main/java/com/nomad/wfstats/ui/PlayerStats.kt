@@ -1,5 +1,6 @@
 package com.nomad.wfstats.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -62,10 +63,12 @@ class PlayerStats : AppCompatActivity() {
                     .show()
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Player>, response: Response<Player>) {
                 if (response.body() != null) {
                     lblPlayerNickname.text = response.body()?.nickname
 
+                    //region PVP
                     lblExperience.text =
                         "Exp: ${Formatacao.formatarNumero(response.body()?.experience)}"
                     lblClan.text = response.body()?.clanName
@@ -96,8 +99,53 @@ class PlayerStats : AppCompatActivity() {
                                 response.body()?.fullResponse.toString()
                             ).toInt()
                         )}"
+//endregion
 
-                    setImageClass(response.body()?.favoritPVP)
+
+                    //region COOP
+/*
+                    lblPlaytimeCoop.text =
+                        "${getString(R.string.playtime)}: ${Formatacao.formatarNumero(
+                            Player.playTimeCoop(response.body()?.fullResponse.toString()).toInt()
+                        )}h"*/
+                    lblKillsCoop.text =
+                        "${getString(R.string.kills)}: ${Formatacao.formatarNumero(response.body()?.pveKills)}"
+                    lblDeathCoop.text =
+                        "${getString(R.string.deaths)}: ${Formatacao.formatarNumero(response.body()?.pveDeath)}"
+                    lblFriendlyKillsCoop.text =
+                        "${getString(R.string.friendlykills)}: ${Formatacao.formatarNumero(response.body()?.pveFriendlyKills)}"
+                    lblCoinsUsed.text =
+                        "${getString(R.string.coins_used)}: ${Formatacao.formatarNumero(
+                            Player.coinsUsed(response.body()?.fullResponse.toString()).toInt()
+                        )}"
+                    lblHeadshotCoop.text =
+                        "${getString(R.string.headshots)}: ${Formatacao.formatarNumero(
+                            Player.totalHeadshotsCoop(response.body()?.fullResponse.toString())
+                                .toInt()
+                        )}"
+                    lblSessionLeft.text =
+                        "${getString(R.string.session_left)}: ${Formatacao.formatarNumero(
+                            Player.sessionLeft(
+                                response.body()?.fullResponse.toString()
+                            ).toInt()
+                        )}"
+                    lblSessionKicked.text =
+                        "${getString(R.string.session_kicked)}: ${Formatacao.formatarNumero(
+                            Player.sessionKicked(
+                                response.body()?.fullResponse.toString()
+                            ).toInt()
+                        )}"
+                    lblMeleeKills.text =
+                        "${getString(R.string.melee_kills)}: ${Formatacao.formatarNumero(
+                            Player.meleeKills(
+                                response.body()?.fullResponse.toString()
+                            ).toInt()
+                        )}"
+
+
+                    //endregion
+
+                    setImageClass(response.body()?.favoritPVP, response.body()?.favoritPVE)
                     setRankClass(response.body()?.rankId)
 
                     pgbPlayer.visibility = View.GONE
@@ -115,7 +163,7 @@ class PlayerStats : AppCompatActivity() {
 
     }
 
-    private fun setImageClass(favoritPVP: String?) {
+    private fun setImageClass(favoritPVP: String?, favoritPVE: String?) {
         when (favoritPVP) {
             "Engineer" -> Glide.with(this@PlayerStats)
                 .apply { RequestOptions.overrideOf(64, 64).fitCenter() }
@@ -133,10 +181,27 @@ class PlayerStats : AppCompatActivity() {
                 .apply { RequestOptions.overrideOf(64, 64) }
                 .load("https://i.imgur.com/NzjfmeD.png").into(imgFavoriteClass)
         }
+        when (favoritPVE) {
+            "Engineer" -> Glide.with(this@PlayerStats)
+                .apply { RequestOptions.overrideOf(64, 64).fitCenter() }
+                .load("https://i.imgur.com/4j8CmBK.png").into(imgFavoriteClassCoop)
+            "Medic" -> Glide.with(this@PlayerStats)
+                .apply { RequestOptions.overrideOf(64, 64) }
+                .load("https://i.imgur.com/twPvpDl.png").into(imgFavoriteClassCoop)
+            "Rifleman" -> Glide.with(this@PlayerStats)
+                .apply { RequestOptions.overrideOf(64, 64) }
+                .load("https://i.imgur.com/NsBcokU.png").into(imgFavoriteClassCoop)
+            "Recon" -> Glide.with(this@PlayerStats)
+                .apply { RequestOptions.overrideOf(64, 64) }
+                .load("https://i.imgur.com/XfoLrqj.png").into(imgFavoriteClassCoop)
+            "Heavy" -> Glide.with(this@PlayerStats)
+                .apply { RequestOptions.overrideOf(64, 64) }
+                .load("https://i.imgur.com/NzjfmeD.png").into(imgFavoriteClassCoop)
+        }
     }
 
     private fun setRankClass(rankId: Int?) {
-        var rankURL: String
+        var rankURL = "https://i.imgur.com/pYdSsjp.png"
         when (rankId) {
             1 -> rankURL = "https://i.imgur.com/pYdSsjp.png"
             2 -> rankURL = "https://i.imgur.com/p167VgK.png"
@@ -230,7 +295,7 @@ class PlayerStats : AppCompatActivity() {
             90 -> rankURL = "https://i.imgur.com/diuag5r.png"
         }
         Glide.with(this@PlayerStats)
-            .load(rankId)
+            .load(rankURL)
             .into(imgRank)
     }
 

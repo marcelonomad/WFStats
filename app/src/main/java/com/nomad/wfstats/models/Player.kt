@@ -140,9 +140,67 @@ data class Player(
             return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots).toString()
         }
 
+        fun totalHeadshotsCoop(fullResponse: String): String {
+            val reconHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val medicHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Medic [mode]PVE [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val riflemanHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Rifleman [mode]PVE [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val engineerHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Engineer [mode]PVE [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            val heavyHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Heavy [mode]PVE [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+
+            return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots + heavyHeadshots).toString()
+        }
+
         fun damageDealt(fullResponse: String): String =
             fullResponse.substringAfter("<Sum> [stat]player_damage  = ")
                 .substringBefore("\n<Sum>")
+
+        fun coinsUsed(fullResponse: String): String =
+            fullResponse.substringAfter("<Sum> [stat]player_resurrected_by_coin  = ")
+                .substringBefore("\n<Sum>")
+
+        fun sessionLeft(fullResponse: String): String =
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_left  = ")
+                .substringBefore("\n<Sum>")
+
+        fun sessionKicked(fullResponse: String): String =
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_kicked  = ")
+                .substringBefore("\n<Sum>")
+
+        fun meleeKills(fullResponse: String): String =
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_kills_melee  = ")
+                .substringBefore("\n<Sum>")
+
+        fun playTimeCoop(fullResponse: String): String {
+            val recon =
+                fullResponse.substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_playtime  = ")
+                    .substringBefore("\n<Sum>").toInt()
+            val engineer =
+                fullResponse.substringAfter("<Sum> [class]Engineer [mode]PVE [stat]player_playtime  = ")
+                    .substringBefore("\n<Sum>").toInt()
+            val medic =
+                fullResponse.substringAfter("<Sum> [class]Medic [mode]PVE [stat]player_playtime  = ")
+                    .substringBefore("\n<Sum>").toInt()
+            val rifleman =
+                fullResponse.substringAfter("<Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = ")
+                    .substringBefore("\n<Sum>").toInt()
+            val heavy =
+                fullResponse.substringAfter("<Sum> [class]Heavy [mode]PVE [stat]player_playtime  = ")
+                    .substringBefore("\n<Sum>").toInt()
+
+            val result = ((recon + engineer + medic + rifleman + heavy) / 60) / 60
+            return result.toString()
+
+        }
     }
 }
 

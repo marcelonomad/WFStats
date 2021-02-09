@@ -31,4 +31,9 @@
     <string name="type_clan_name">Type Clan Name</string>
     <string name="details">Details</string>
     <string name="coop" translatable="false">Coop</string>
+    <string name="coins_used">Coins Used</string>
+    <string name="session_left">Sessions Left</string>
+    <string name="session_kicked">Sessions Kicked</string>
+    <string name="melee_kills">Melee Kills</string>
+    <string name="connection_lost">Connection Lost</string>
 </resources>
