@@ -11,6 +11,7 @@
 <item name="cardBackgroundColor">@color/cardBackgroud</item>-->
         <item name="font">@font/warface</item>
         <item name="fontFamily">@font/warface</item>
+        <item name="background">@color/colorPrimary</item>
 
     </style>
 

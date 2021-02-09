@@ -36,4 +36,6 @@
     <string name="session_kicked">Sessions Kicked</string>
     <string name="melee_kills">Melee Kills</string>
     <string name="connection_lost">Connection Lost</string>
+    <string name="clan_leader">Clan Leader</string>
+    <string name="clan_points">Clan Points</string>
 </resources>
