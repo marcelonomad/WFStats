@@ -2,6 +2,7 @@ package com.nomad.wfstats.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nomad.wfstats.R
+import com.nomad.wfstats.models.Headshots
 import com.nomad.wfstats.models.NetworkUtils
 import com.nomad.wfstats.models.Player
 import com.nomad.wfstats.models.adapters.Server
@@ -20,8 +22,11 @@ import kotlinx.android.synthetic.main.activity_player_stats.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 
 class PlayerStats : AppCompatActivity() {
+    private var listHeadshots = mutableListOf<Headshots>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_stats)
@@ -43,6 +48,11 @@ class PlayerStats : AppCompatActivity() {
                 getPlayer()
             } else
                 Toast.makeText(this, getString(R.string.hint_type_player), Toast.LENGTH_LONG).show()
+        }
+        btnDetails.setOnClickListener {
+            val i = Intent(this, PlayerDetailsStats::class.java)
+            i.putExtra("headshotspvp", listHeadshots as Serializable)
+            startActivity(i)
         }
     }
 
@@ -69,6 +79,11 @@ class PlayerStats : AppCompatActivity() {
                     lblPlayerNickname.text = response.body()?.nickname
 
                     //region PVP
+
+                    listHeadshots =
+                        Player.listHeadshots(response.body().toString(), this@PlayerStats)
+                            .toMutableList()
+
                     lblExperience.text =
                         "Exp: ${Formatacao.formatarNumero(response.body()?.experience)}"
                     lblClan.text = response.body()?.clanName

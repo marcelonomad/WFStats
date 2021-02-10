@@ -1,7 +1,9 @@
 package com.nomad.wfstats.models
 
+import android.content.Context
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.nomad.wfstats.R
 
 data class Player(
     @SerializedName("user_id")
@@ -140,6 +142,30 @@ data class Player(
             return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots).toString()
         }
 
+        fun listHeadshots(fullResponse: String, context: Context): List<Headshots> {
+            val list = mutableListOf<Headshots>()
+            val reconHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            list.add(Headshots(context.getString(R.string.recon), reconHeadshots))
+
+            val medicHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            list.add(Headshots(context.getString(R.string.medic), medicHeadshots))
+
+            val riflemanHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            list.add(Headshots(context.getString(R.string.rifleman), riflemanHeadshots))
+
+            val engineerHeadshots = fullResponse
+                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ")
+                .substringBefore("\n<Sum>").toInt()
+            list.add(Headshots(context.getString(R.string.engineer), engineerHeadshots))
+            return list
+        }
+
         fun totalHeadshotsCoop(fullResponse: String): String {
             val reconHeadshots = fullResponse
                 .substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_headshots  = ")
@@ -203,6 +229,7 @@ data class Player(
         }
     }
 }
+
 
 
 

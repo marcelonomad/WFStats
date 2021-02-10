@@ -39,4 +39,8 @@
     <string name="clantop100">Top 100 Clãs</string>
     <string name="error_internet">Erro. Verifique a internet e tente novamente.</string>
     <string name="members">Membros</string>
+    <string name="pvp_headshot_percentage">Porcentagem de HS no PVP</string>
+    <string name="rifleman">Fuzileiro</string>
+    <string name="medic">Médico</string>
+    <string name="engineer">Engenheiro</string>
 </resources>

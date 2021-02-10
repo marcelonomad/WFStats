@@ -40,6 +40,12 @@
     <string name="clantop100">Top 100 Clans</string>
     <string name="error_internet">There was an error, check your internet and try again</string>
     <string name="members">Members</string>
+    <string name="pvp_headshot_percentage">PVP Headshot Percentage</string>
+    <string name="recon" translatable="false">Sniper</string>
+    <string name="rifleman">Rifleman</string>
+    <string name="medic">Medic</string>
+    <string name="engineer">Engineer</string>
+    <string name="heavy" translatable="false">SED</string>
 </resources>
 
 
