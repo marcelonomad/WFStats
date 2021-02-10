@@ -19,5 +19,9 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, ClanStats::class.java)
             startActivity(i)
         }
+        btn_Clan_Top_100.setOnClickListener {
+            val i = Intent(this, ClanTop100::class.java)
+            startActivity(i)
+        }
     }
 }

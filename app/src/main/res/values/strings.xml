@@ -37,5 +37,24 @@
     <string name="melee_kills">Melee Kills</string>
     <string name="connection_lost">Connection Lost</string>
     <string name="clan_leader">Clan Leader</string>
-    <string name="clan_points">Clan Points</string>
+    <string name="clantop100">Top 100 Clans</string>
+    <string name="error_internet">There was an error, check your internet and try again</string>
+    <string name="members">Members</string>
 </resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

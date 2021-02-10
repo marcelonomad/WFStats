@@ -35,4 +35,8 @@
     <string name="session_kicked">Expulsões</string>
     <string name="melee_kills">Corpo-a-Corpo</string>
     <string name="connection_lost">Conexão Perdida</string>
+    <string name="clan_leader">Líder do Clã</string>
+    <string name="clantop100">Top 100 Clãs</string>
+    <string name="error_internet">Erro. Verifique a internet e tente novamente.</string>
+    <string name="members">Membros</string>
 </resources>
