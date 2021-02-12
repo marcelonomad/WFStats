@@ -44,4 +44,7 @@
     <string name="medic">Médico</string>
     <string name="engineer">Engenheiro</string>
     <string name="hint_graph">Clique no gráfico para mais detalhes</string>
+    <string name="general_info">Informações Gerais</string>
+    <string name="ammo_restored">Munição Restaurada</string>
+    <string name="climb_assists">Auxílio em Escaladas</string>
 </resources>

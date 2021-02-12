@@ -18,6 +18,7 @@
 <Sum> [mode]PVE [stat]player_deaths  = 2019 //mortes do coop
 <Sum> [mode]PVE [stat]player_kills_ai  = 111654
 
+<Sum> [class]Recon [mode]PVE [stat]player_playtime  = 
 <Sum> [class]Engineer [mode]PVE [stat]player_playtime  = 3004388
 <Sum> [class]Medic [mode]PVE [stat]player_playtime  = 1549114
 <Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = 1222158

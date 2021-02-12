@@ -47,6 +47,9 @@
     <string name="engineer">Engineer</string>
     <string name="heavy" translatable="false">SED</string>
     <string name="hint_graph">Click on graph for more details</string>
+    <string name="general_info">General Info</string>
+    <string name="ammo_restored">Ammo Restored</string>
+    <string name="climb_assists">Climb Assists</string>
 </resources>
 
 
