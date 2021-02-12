@@ -43,4 +43,5 @@
     <string name="rifleman">Fuzileiro</string>
     <string name="medic">Médico</string>
     <string name="engineer">Engenheiro</string>
+    <string name="hint_graph">Clique no gráfico para mais detalhes</string>
 </resources>

@@ -11,12 +11,9 @@
 <Sum> [stat]player_resurrect_made  = 7627
 <Sum> [mode]PVP [stat]player_sessions_kicked  = 33
 <Sum> [mode]PVP [stat]player_sessions_left  = 194
-<Sum> [mode]PVP [stat]player_kills_melee  = 635
+<Sum> [stat]player_heal  = 582071
 
 <Sum> [class]Engineer [mode]PVP [stat]player_kills_claymore  = 103
-
-
-
 
 <Sum> [mode]PVE [stat]player_deaths  = 2019 //mortes do coop
 <Sum> [mode]PVE [stat]player_kills_ai  = 111654

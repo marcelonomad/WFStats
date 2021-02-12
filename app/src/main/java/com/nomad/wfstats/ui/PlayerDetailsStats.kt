@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.faskn.lib.PieChart
 import com.faskn.lib.Slice
-import com.faskn.lib.buildChart
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.Headshots
+import com.nomad.wfstats.models.PlayerDetails
 import com.nomad.wfstats.models.adapters.CustomLegendAdapter
 import kotlinx.android.synthetic.main.activity_player_details_stats.*
-import kotlin.random.Random
 
 
 class PlayerDetailsStats : AppCompatActivity() {
@@ -17,11 +16,10 @@ class PlayerDetailsStats : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_details_stats)
 
-        val headshots = intent.getSerializableExtra("headshotspvp") as? List<Headshots>
-
+        val playerDetails = intent.getSerializableExtra("playerDetails") as? PlayerDetails
 
         val pieChart = PieChart(
-            slices = provideSlices(headshots!!.toList()),
+            slices = provideSlices(getHeadshots(playerDetails!!)),
             clickListener = null,
             sliceStartPoint = 0f,
             sliceWidth = 80f
@@ -43,6 +41,17 @@ class PlayerDetailsStats : AppCompatActivity() {
         }
         return array
     }
+
+    private fun getHeadshots(playerDetails: PlayerDetails): List<Headshots> {
+        val headshots = mutableListOf<Headshots>()
+
+        headshots.add(Headshots(getString(R.string.recon), playerDetails.pvpReconHeadshots))
+        headshots.add(Headshots(getString(R.string.medic), playerDetails.pvpMedicHeadshots))
+        headshots.add(Headshots(getString(R.string.rifleman), playerDetails.pvpRiflemanHeadshots))
+        headshots.add(Headshots(getString(R.string.engineer), playerDetails.pvpEngineerHeadshots))
+        return headshots
+    }
+
 }
 
 

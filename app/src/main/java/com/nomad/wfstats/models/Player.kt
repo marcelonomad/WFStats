@@ -122,21 +122,21 @@ data class Player(
     @Expose
     var fullResponse: String?
 
-) {
+) /*{
 
     companion object {
         fun totalHeadshots(fullResponse: String): String {
             val reconHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val medicHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val riflemanHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val engineerHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
 
             return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots).toString()
@@ -145,22 +145,22 @@ data class Player(
         fun listHeadshots(fullResponse: String, context: Context): List<Headshots> {
             val list = mutableListOf<Headshots>()
             val reconHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Recon [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             list.add(Headshots(context.getString(R.string.recon), reconHeadshots))
 
             val medicHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Medic [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             list.add(Headshots(context.getString(R.string.medic), medicHeadshots))
 
             val riflemanHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Rifleman [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             list.add(Headshots(context.getString(R.string.rifleman), riflemanHeadshots))
 
             val engineerHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Engineer [mode]PVP [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             list.add(Headshots(context.getString(R.string.engineer), engineerHeadshots))
             return list
@@ -168,59 +168,73 @@ data class Player(
 
         fun totalHeadshotsCoop(fullResponse: String): String {
             val reconHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val medicHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Medic [mode]PVE [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Medic [mode]PVE [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val riflemanHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Rifleman [mode]PVE [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Rifleman [mode]PVE [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val engineerHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Engineer [mode]PVE [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Engineer [mode]PVE [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
             val heavyHeadshots = fullResponse
-                .substringAfter("<Sum> [class]Heavy [mode]PVE [stat]player_headshots  = ")
+                .substringAfter("<Sum> [class]Heavy [mode]PVE [stat]player_headshots  = ", "0")
                 .substringBefore("\n<Sum>").toInt()
-
             return (reconHeadshots + medicHeadshots + riflemanHeadshots + engineerHeadshots + heavyHeadshots).toString()
         }
 
         fun damageDealt(fullResponse: String): String =
-            fullResponse.substringAfter("<Sum> [stat]player_damage  = ")
+            fullResponse.substringAfter("<Sum> [stat]player_damage  = ", "0")
                 .substringBefore("\n<Sum>")
 
         fun coinsUsed(fullResponse: String): String =
-            fullResponse.substringAfter("<Sum> [stat]player_resurrected_by_coin  = ")
+            fullResponse.substringAfter("<Sum> [stat]player_resurrected_by_coin  = ", "0")
                 .substringBefore("\n<Sum>")
 
         fun sessionLeft(fullResponse: String): String =
-            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_left  = ")
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_left  = ", "0")
                 .substringBefore("\n<Sum>")
 
         fun sessionKicked(fullResponse: String): String =
-            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_kicked  = ")
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_sessions_kicked  = ", "0")
                 .substringBefore("\n<Sum>")
 
         fun meleeKills(fullResponse: String): String =
-            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_kills_melee  = ")
+            fullResponse.substringAfter("<Sum> [mode]PVE [stat]player_kills_melee  = ", "0")
                 .substringBefore("\n<Sum>")
 
         fun playTimeCoop(fullResponse: String): String {
             val recon =
-                fullResponse.substringAfter("<Sum> [class]Recon [mode]PVE [stat]player_playtime  = ")
+                fullResponse.substringAfter(
+                    "<Sum> [class]Recon [mode]PVE [stat]player_playtime  = ",
+                    "0"
+                )
                     .substringBefore("\n<Sum>").toInt()
             val engineer =
-                fullResponse.substringAfter("<Sum> [class]Engineer [mode]PVE [stat]player_playtime  = ")
+                fullResponse.substringAfter(
+                    "<Sum> [class]Engineer [mode]PVE [stat]player_playtime  = ",
+                    "0"
+                )
                     .substringBefore("\n<Sum>").toInt()
             val medic =
-                fullResponse.substringAfter("<Sum> [class]Medic [mode]PVE [stat]player_playtime  = ")
+                fullResponse.substringAfter(
+                    "<Sum> [class]Medic [mode]PVE [stat]player_playtime  = ",
+                    "0"
+                )
                     .substringBefore("\n<Sum>").toInt()
             val rifleman =
-                fullResponse.substringAfter("<Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = ")
+                fullResponse.substringAfter(
+                    "<Sum> [class]Rifleman [mode]PVE [stat]player_playtime  = ",
+                    "0"
+                )
                     .substringBefore("\n<Sum>").toInt()
             val heavy =
-                fullResponse.substringAfter("<Sum> [class]Heavy [mode]PVE [stat]player_playtime  = ")
+                fullResponse.substringAfter(
+                    "<Sum> [class]Heavy [mode]PVE [stat]player_playtime  = ",
+                    "0"
+                )
                     .substringBefore("\n<Sum>").toInt()
 
             val result = ((recon + engineer + medic + rifleman + heavy) / 60) / 60
@@ -247,3 +261,4 @@ data class Player(
 
 
 
+*/

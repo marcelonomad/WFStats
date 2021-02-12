@@ -14,6 +14,7 @@ import com.nomad.wfstats.R
 import com.nomad.wfstats.models.Headshots
 import com.nomad.wfstats.models.NetworkUtils
 import com.nomad.wfstats.models.Player
+import com.nomad.wfstats.models.PlayerDetails
 import com.nomad.wfstats.models.adapters.Server
 import com.nomad.wfstats.models.adapters.ServerCode
 import com.nomad.wfstats.models.interfaces.Endpoint
@@ -25,7 +26,7 @@ import retrofit2.Response
 import java.io.Serializable
 
 class PlayerStats : AppCompatActivity() {
-    private var listHeadshots = mutableListOf<Headshots>()
+    private lateinit var playerDetails: PlayerDetails
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +52,7 @@ class PlayerStats : AppCompatActivity() {
         }
         btnDetails.setOnClickListener {
             val i = Intent(this, PlayerDetailsStats::class.java)
-            i.putExtra("headshotspvp", listHeadshots as Serializable)
+            i.putExtra("playerDetails", playerDetails as Serializable)
             startActivity(i)
         }
     }
@@ -78,11 +79,9 @@ class PlayerStats : AppCompatActivity() {
                 if (response.body() != null) {
                     lblPlayerNickname.text = response.body()?.nickname
 
-                    //region PVP
+                    playerDetails = PlayerDetails.playerDetails(response.body().toString())
 
-                    listHeadshots =
-                        Player.listHeadshots(response.body().toString(), this@PlayerStats)
-                            .toMutableList()
+                    //region PVP
 
                     lblExperience.text =
                         "Exp: ${Formatacao.formatarNumero(response.body()?.experience)}"
@@ -104,25 +103,20 @@ class PlayerStats : AppCompatActivity() {
 
                     lblHeadshots.text =
                         "${getString(R.string.headshots)}: ${Formatacao.formatarNumero(
-                            Player.totalHeadshots(
-                                response.body()?.fullResponse.toString()
-                            ).toInt()
+                            playerDetails.pvpEngineerHeadshots +
+                                    playerDetails.pvpMedicHeadshots +
+                                    playerDetails.pvpReconHeadshots +
+                                    playerDetails.pvpRiflemanHeadshots
                         )}"
                     lblDamageDealt.text =
                         "${getString(R.string.damage_dealt)}: ${Formatacao.formatarNumero(
-                            Player.damageDealt(
-                                response.body()?.fullResponse.toString()
-                            ).toInt()
+                            playerDetails.pvpDamageDealt
                         )}"
 //endregion
 
 
                     //region COOP
-/*
-                    lblPlaytimeCoop.text =
-                        "${getString(R.string.playtime)}: ${Formatacao.formatarNumero(
-                            Player.playTimeCoop(response.body()?.fullResponse.toString()).toInt()
-                        )}h"*/
+
                     lblKillsCoop.text =
                         "${getString(R.string.kills)}: ${Formatacao.formatarNumero(response.body()?.pveKills)}"
                     lblDeathCoop.text =
@@ -131,30 +125,27 @@ class PlayerStats : AppCompatActivity() {
                         "${getString(R.string.friendlykills)}: ${Formatacao.formatarNumero(response.body()?.pveFriendlyKills)}"
                     lblCoinsUsed.text =
                         "${getString(R.string.coins_used)}: ${Formatacao.formatarNumero(
-                            Player.coinsUsed(response.body()?.fullResponse.toString()).toInt()
+                            playerDetails.coinsUsed
                         )}"
                     lblHeadshotCoop.text =
                         "${getString(R.string.headshots)}: ${Formatacao.formatarNumero(
-                            Player.totalHeadshotsCoop(response.body()?.fullResponse.toString())
-                                .toInt()
+                            playerDetails.pveEngineerHeadshots +
+                                    playerDetails.pveHeavyHeadshots +
+                                    playerDetails.pveMedicHeadshots +
+                                    playerDetails.pveReconHeadshots +
+                                    playerDetails.pveRiflemanHeadshots
                         )}"
                     lblSessionLeft.text =
                         "${getString(R.string.session_left)}: ${Formatacao.formatarNumero(
-                            Player.sessionLeft(
-                                response.body()?.fullResponse.toString()
-                            ).toInt()
+                            playerDetails.pveLeft
                         )}"
                     lblSessionKicked.text =
                         "${getString(R.string.session_kicked)}: ${Formatacao.formatarNumero(
-                            Player.sessionKicked(
-                                response.body()?.fullResponse.toString()
-                            ).toInt()
+                            playerDetails.pveKicked
                         )}"
                     lblMeleeKills.text =
                         "${getString(R.string.melee_kills)}: ${Formatacao.formatarNumero(
-                            Player.meleeKills(
-                                response.body()?.fullResponse.toString()
-                            ).toInt()
+                            playerDetails.pveMelee
                         )}"
 
 
