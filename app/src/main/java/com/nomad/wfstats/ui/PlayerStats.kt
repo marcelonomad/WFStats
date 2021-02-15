@@ -11,14 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nomad.wfstats.R
-import com.nomad.wfstats.models.Headshots
 import com.nomad.wfstats.models.NetworkUtils
 import com.nomad.wfstats.models.Player
 import com.nomad.wfstats.models.PlayerDetails
 import com.nomad.wfstats.models.adapters.Server
 import com.nomad.wfstats.models.adapters.ServerCode
 import com.nomad.wfstats.models.interfaces.Endpoint
-import com.nomad.wfstats.models.util.Formatacao
+import com.nomad.wfstats.models.util.Formatter
 import kotlinx.android.synthetic.main.activity_player_stats.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -84,32 +83,32 @@ class PlayerStats : AppCompatActivity() {
                     //region PVP
 
                     lblExperience.text =
-                        "Exp: ${Formatacao.formatarNumero(response.body()?.experience)}"
+                        "Exp: ${Formatter.thousandFormat(response.body()?.experience)}"
                     lblClan.text = response.body()?.clanName
                     lblPlayTime.text =
                         "${getString(R.string.playtime)}: ${response.body()?.playtimeH}:${response.body()?.playtimeM}h"
 
                     lblKills.text =
-                        "${getString(R.string.kills)}: ${Formatacao.formatarNumero(response.body()?.kills)}"
+                        "${getString(R.string.kills)}: ${Formatter.thousandFormat(response.body()?.kills)}"
                     lblDeath.text =
-                        "${getString(R.string.deaths)}: ${Formatacao.formatarNumero(response.body()?.death)}"
+                        "${getString(R.string.deaths)}: ${Formatter.thousandFormat(response.body()?.death)}"
                     lblFriendlyKills.text =
-                        "${getString(R.string.friendlykills)}: ${Formatacao.formatarNumero(response.body()?.friendlyKills)}"
+                        "${getString(R.string.friendlykills)}: ${Formatter.thousandFormat(response.body()?.friendlyKills)}"
                     lblKD.text = "${getString(R.string.kd)}: ${response.body()?.pvp}"
                     lblPVPWins.text =
-                        "${getString(R.string.pvp_wins)}: ${Formatacao.formatarNumero(response.body()?.pvpWins)}"
+                        "${getString(R.string.pvp_wins)}: ${Formatter.thousandFormat(response.body()?.pvpWins)}"
                     lblPVPLoses.text =
-                        "${getString(R.string.pvp_loses)}: ${Formatacao.formatarNumero(response.body()?.pvpLost)}"
+                        "${getString(R.string.pvp_loses)}: ${Formatter.thousandFormat(response.body()?.pvpLost)}"
 
                     lblHeadshots.text =
-                        "${getString(R.string.headshots)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.headshots)}: ${Formatter.thousandFormat(
                             playerDetails.pvpEngineerHeadshots +
                                     playerDetails.pvpMedicHeadshots +
                                     playerDetails.pvpReconHeadshots +
                                     playerDetails.pvpRiflemanHeadshots
                         )}"
                     lblDamageDealt.text =
-                        "${getString(R.string.damage_dealt)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.damage_dealt)}: ${Formatter.thousandFormat(
                             playerDetails.pvpDamageDealt
                         )}"
 //endregion
@@ -118,17 +117,17 @@ class PlayerStats : AppCompatActivity() {
                     //region COOP
 
                     lblKillsCoop.text =
-                        "${getString(R.string.kills)}: ${Formatacao.formatarNumero(response.body()?.pveKills)}"
+                        "${getString(R.string.kills)}: ${Formatter.thousandFormat(response.body()?.pveKills)}"
                     lblDeathCoop.text =
-                        "${getString(R.string.deaths)}: ${Formatacao.formatarNumero(response.body()?.pveDeath)}"
+                        "${getString(R.string.deaths)}: ${Formatter.thousandFormat(response.body()?.pveDeath)}"
                     lblFriendlyKillsCoop.text =
-                        "${getString(R.string.friendlykills)}: ${Formatacao.formatarNumero(response.body()?.pveFriendlyKills)}"
+                        "${getString(R.string.friendlykills)}: ${Formatter.thousandFormat(response.body()?.pveFriendlyKills)}"
                     lblCoinsUsed.text =
-                        "${getString(R.string.coins_used)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.coins_used)}: ${Formatter.thousandFormat(
                             playerDetails.coinsUsed
                         )}"
                     lblHeadshotCoop.text =
-                        "${getString(R.string.headshots)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.headshots)}: ${Formatter.thousandFormat(
                             playerDetails.pveEngineerHeadshots +
                                     playerDetails.pveHeavyHeadshots +
                                     playerDetails.pveMedicHeadshots +
@@ -136,15 +135,15 @@ class PlayerStats : AppCompatActivity() {
                                     playerDetails.pveRiflemanHeadshots
                         )}"
                     lblSessionLeft.text =
-                        "${getString(R.string.session_left)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.session_left)}: ${Formatter.thousandFormat(
                             playerDetails.pveLeft
                         )}"
                     lblSessionKicked.text =
-                        "${getString(R.string.session_kicked)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.session_kicked)}: ${Formatter.thousandFormat(
                             playerDetails.pveKicked
                         )}"
                     lblMeleeKills.text =
-                        "${getString(R.string.melee_kills)}: ${Formatacao.formatarNumero(
+                        "${getString(R.string.melee_kills)}: ${Formatter.thousandFormat(
                             playerDetails.pveMelee
                         )}"
 

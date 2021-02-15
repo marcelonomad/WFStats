@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.ClanMember
-import com.nomad.wfstats.models.util.Formatacao
-import kotlinx.android.synthetic.main.activity_player_stats.view.*
+import com.nomad.wfstats.models.util.Formatter
 import kotlinx.android.synthetic.main.item_clan_member.view.*
-import okhttp3.internal.Util
 
 class ClanMemberAdapter(
     private val members: List<ClanMember>,
@@ -46,7 +44,7 @@ class ClanMemberViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
     @SuppressLint("SetTextI18n")
     fun bindView(member: ClanMember, context: Context) {
         memberName.text = member.nickname
-        memberPoints.text = "Points: ${Formatacao.formatarNumero(member.clan_points?.toInt())}"
+        memberPoints.text = "Points: ${Formatter.thousandFormat(member.clan_points?.toInt())}"
         when (member.clan_role) {
             "MASTER" -> Glide.with(context)
                 .load("https://i.imgur.com/MLPiD7a.png")

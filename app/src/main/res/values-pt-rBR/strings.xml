@@ -47,4 +47,22 @@
     <string name="general_info">Informações Gerais</string>
     <string name="ammo_restored">Munição Restaurada</string>
     <string name="climb_assists">Auxílio em Escaladas</string>
+    <string name="coop_climbs">Escaladas Coop</string>
+    <string name="pvp_melee_kills">Corpo-a-Corpo PVP</string>
+    <string name="recon_playtime">Tempo de Sniper</string>
+    <string name="medic_playtime">Tempo de Médico</string>
+    <string name="rifleman_playtime">Tempo de Fuzileiro</string>
+    <string name="engineer_playtime">Tempo de Engenheiro</string>
+    <string name="heavy_playtime">Tempo de SED</string>
+    <string name="repair_made">Reparo Feito</string>
+    <string name="revive_made">Ressureições Feitas</string>
+    <string name="pvp_kicked">Expulsões PVP</string>
+    <string name="pvp_left">PVP Abandonados</string>
+    <string name="claymore_kills">Elim. Claymore</string>
+    <string name="hp_healed">HP Restaurado</string>
+    <string name="rifleman_image_description">Imagem da classe de fuzileiro</string>
+    <string name="medic_image_description">Imagem da classe de médico</string>
+    <string name="engineer_image_description">Imagem da classe de engenheiro</string>
+    <string name="sniper_image_description">Imagem da classe de sniper</string>
+    <string name="sed_image_description">Imagem da classe de sed</string>
 </resources>

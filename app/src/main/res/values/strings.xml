@@ -50,6 +50,24 @@
     <string name="general_info">General Info</string>
     <string name="ammo_restored">Ammo Restored</string>
     <string name="climb_assists">Climb Assists</string>
+    <string name="coop_climbs">Coop Climbs</string>
+    <string name="pvp_melee_kills">PVP Melee Kills</string>
+    <string name="recon_playtime">Sniper Playtime</string>
+    <string name="medic_playtime">Medic Playtime</string>
+    <string name="rifleman_playtime">Rifleman Playtime</string>
+    <string name="engineer_playtime">Engineer Playtime</string>
+    <string name="heavy_playtime">SED Playtime</string>
+    <string name="repair_made">Repair Made</string>
+    <string name="revive_made">Revive Made</string>
+    <string name="pvp_kicked">PVP Kicked</string>
+    <string name="pvp_left">PVP Left</string>
+    <string name="claymore_kills">Claymore Kills</string>
+    <string name="hp_healed">HP Healed</string>
+    <string name="rifleman_image_description">The rifleman class image</string>
+    <string name="medic_image_description">The medic class image</string>
+    <string name="engineer_image_description">The engineer class image</string>
+    <string name="sniper_image_description">The sniper class image</string>
+    <string name="sed_image_description">The SED class image</string>
 </resources>
 
 

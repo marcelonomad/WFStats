@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.ClanTop100
-import com.nomad.wfstats.models.util.Formatacao
+import com.nomad.wfstats.models.util.Formatter
 import kotlinx.android.synthetic.main.item_clan_top_100.view.*
 
 class ClanTop100Adapter(private val clans: List<ClanTop100>, val context: Context) :
@@ -48,7 +48,7 @@ class ClanTop100ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         nameLeader.text = "${context.getString(R.string.clan_leader)}: ${clan.clanLeader}"
         clanCount.text = "${context.getString(R.string.members)}: ${clan.members}"
         clanPoints.text =
-            "${context.getString(R.string.clan_points)}: ${Formatacao.formatarNumero(clan.points?.toInt())}"
+            "${context.getString(R.string.clan_points)}: ${Formatter.thousandFormat(clan.points?.toInt())}"
     }
 }
 
