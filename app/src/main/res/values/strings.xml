@@ -68,6 +68,7 @@
     <string name="engineer_image_description">The engineer class image</string>
     <string name="sniper_image_description">The sniper class image</string>
     <string name="sed_image_description">The SED class image</string>
+    <string name="hint_clan_player">Click on clan name to check clan stats</string>
 </resources>
 
 

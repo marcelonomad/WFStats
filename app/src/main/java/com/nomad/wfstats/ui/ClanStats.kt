@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,9 +47,29 @@ class ClanStats : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.hint_type_clan), Toast.LENGTH_LONG).show()
         }
 
+        val clanName = intent.getStringExtra("clanName")
+        val serverCode = intent.getIntExtra("serverCode", 0)
+
+        if (clanName != null && clanName.isNotEmpty()) {
+            txtClanName.setText(clanName)
+            selectSpinnerItemByValue(spnServerClan, serverCode)
+            btnFindClan.performClick()
+        }
+
+
     }
 
-    fun getClan() {
+    private fun selectSpinnerItemByValue(spnr: Spinner, value: Int) {
+        val adapter: Server = spnr.adapter as Server
+        for (position in 0 until adapter.count) {
+            if ((adapter.getItem(position) as ServerCode).code == value) {
+                spnr.setSelection(position)
+                return
+            }
+        }
+    }
+
+    private fun getClan() {
         val retrofitClient = NetworkUtils
             .getRetrofitInstance()
         val endpoint = retrofitClient.create(Endpoint::class.java)
@@ -71,7 +92,11 @@ class ClanStats : AppCompatActivity() {
                     rcvMembers.layoutManager = lm
                     if (response.body()?.members!!.isNotEmpty()) {
                         val adapter =
-                            ClanMemberAdapter(response.body()?.members!!.toList(), this@ClanStats)
+                            ClanMemberAdapter(
+                                response.body()?.members!!.toList(),
+                                (spnServerClan.selectedItem as ServerCode),
+                                this@ClanStats
+                            )
                         rcvMembers.adapter = adapter
                         adapter.notifyDataSetChanged()
                     }
@@ -84,7 +109,7 @@ class ClanStats : AppCompatActivity() {
         })
     }
 
-    fun getServer(): List<ServerCode> {
+    private fun getServer(): List<ServerCode> {
         val list = mutableListOf<ServerCode>()
         list.add(
             ServerCode(
@@ -104,14 +129,14 @@ class ClanStats : AppCompatActivity() {
 
     }
 
-    fun getClanName(context: Context): String {
+    private fun getClanName(context: Context): String {
         val clanName = getString(R.string.clanname)
         val sharedPref: SharedPreferences =
             context.getSharedPreferences(clanName, Context.MODE_PRIVATE)
         return sharedPref.getString(clanName, "").toString()
     }
 
-    fun saveClanName(context: Context, name: String) {
+    private fun saveClanName(context: Context, name: String) {
         val clanName = getString(R.string.clanname)
         val sharedPref: SharedPreferences =
             context.getSharedPreferences(clanName, Context.MODE_PRIVATE)

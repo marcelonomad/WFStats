@@ -7,6 +7,7 @@
     android:background="@color/colorPrimary">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/crdClanMemberTop100"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -30,7 +31,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/clan"
-                android:textColor="@color/colorAmber"
+                android:textColor="@color/colorClan"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

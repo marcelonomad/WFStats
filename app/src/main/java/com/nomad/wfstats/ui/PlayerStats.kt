@@ -5,11 +5,15 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.snackbar.Snackbar
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.NetworkUtils
 import com.nomad.wfstats.models.Player
@@ -18,11 +22,13 @@ import com.nomad.wfstats.models.adapters.Server
 import com.nomad.wfstats.models.adapters.ServerCode
 import com.nomad.wfstats.models.interfaces.Endpoint
 import com.nomad.wfstats.models.util.Formatter
+import kotlinx.android.synthetic.main.activity_clan_stats.*
 import kotlinx.android.synthetic.main.activity_player_stats.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.Serializable
+
 
 class PlayerStats : AppCompatActivity() {
     private lateinit var playerDetails: PlayerDetails
@@ -36,7 +42,6 @@ class PlayerStats : AppCompatActivity() {
         txtPlayerName.setText(getPlayerName(this))
 
         val servers = getServer()
-
         val spnAdapter = Server(this, servers)
         spnServer.adapter = spnAdapter
 
@@ -53,6 +58,31 @@ class PlayerStats : AppCompatActivity() {
             val i = Intent(this, PlayerDetailsStats::class.java)
             i.putExtra("playerDetails", playerDetails as Serializable)
             startActivity(i)
+        }
+        lblClan.setOnClickListener {
+            val i = Intent(this, ClanStats::class.java)
+            i.putExtra("serverCode", (spnServer.selectedItem as ServerCode).code)
+            i.putExtra("clanName", lblClan.text)
+            startActivity(i)
+        }
+
+        val playerName = intent.getStringExtra("playerName")
+        val serverCode = intent.getIntExtra("serverCode", 0)
+
+        if (playerName != null && playerName.isNotEmpty()) {
+            txtPlayerName.setText(playerName)
+            selectSpinnerItemByValue(spnServer, serverCode)
+            btnFindPlayer.performClick()
+        }
+    }
+
+    private fun selectSpinnerItemByValue(spnr: Spinner, value: Int) {
+        val adapter: Server = spnr.adapter as Server
+        for (position in 0 until adapter.count) {
+            if ((adapter.getItem(position) as ServerCode).code == value) {
+                spnr.setSelection(position)
+                return
+            }
         }
     }
 
@@ -156,6 +186,12 @@ class PlayerStats : AppCompatActivity() {
                     pgbPlayer.visibility = View.GONE
                     crdPlayer.visibility = View.GONE
                     scvPlayer.visibility = View.VISIBLE
+
+                    Toast.makeText(
+                        this@PlayerStats,
+                        getString(R.string.hint_clan_player),
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 } else {
                     pgbPlayer.visibility = View.GONE

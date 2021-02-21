@@ -65,4 +65,5 @@
     <string name="engineer_image_description">Imagem da classe de engenheiro</string>
     <string name="sniper_image_description">Imagem da classe de sniper</string>
     <string name="sed_image_description">Imagem da classe de sed</string>
+    <string name="hint_clan_player">Clique no nome do clã para obter detalhes do clã</string>
 </resources>

@@ -64,7 +64,11 @@ class ClanTop100 : AppCompatActivity() {
 
                     rcvClanTop100.layoutManager = lm
                     val adapter =
-                        ClanTop100Adapter(response.body()!!.toList(), this@ClanTop100)
+                        ClanTop100Adapter(
+                            response.body()!!.toList(),
+                            (spnClanTop100.selectedItem as ServerCode),
+                            this@ClanTop100
+                        )
                     rcvClanTop100.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }
@@ -77,7 +81,7 @@ class ClanTop100 : AppCompatActivity() {
 
     }
 
-    fun getServer(): List<ServerCode> {
+    private fun getServer(): List<ServerCode> {
         val list = mutableListOf<ServerCode>()
         list.add(
             ServerCode(

@@ -51,6 +51,6 @@ class Server(val context: Context, var servers: List<ServerCode>) : BaseAdapter(
     }
 }
 
-class ServerCode(val code:Int, val name: String, val urlImage: String) {
+class ServerCode(val code: Int, val name: String, val urlImage: String) {
 
 }
