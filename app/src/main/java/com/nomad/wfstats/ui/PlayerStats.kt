@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.google.android.material.snackbar.Snackbar
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.NetworkUtils
@@ -32,7 +34,7 @@ import java.io.Serializable
 
 class PlayerStats : AppCompatActivity() {
     private lateinit var playerDetails: PlayerDetails
-
+    lateinit var adView: AdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_stats)
@@ -44,6 +46,8 @@ class PlayerStats : AppCompatActivity() {
         val servers = getServer()
         val spnAdapter = Server(this, servers)
         spnServer.adapter = spnAdapter
+
+        adView = findViewById<View>(R.id.adPlayerStats) as AdView
 
         btnFindPlayer.setOnClickListener {
             if (txtPlayerName.text.isNotEmpty()) {
@@ -192,6 +196,8 @@ class PlayerStats : AppCompatActivity() {
                         getString(R.string.hint_clan_player),
                         Toast.LENGTH_LONG
                     ).show()
+                    val adRequest = AdRequest.Builder().build()
+                    adView.loadAd(adRequest)
 
                 } else {
                     pgbPlayer.visibility = View.GONE

@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.faskn.lib.PieChart
 import com.faskn.lib.Slice
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.nomad.wfstats.R
 import com.nomad.wfstats.models.Headshots
 import com.nomad.wfstats.models.PlayerDetails
@@ -16,11 +18,18 @@ import kotlinx.android.synthetic.main.activity_player_details_stats.*
 
 
 class PlayerDetailsStats : AppCompatActivity() {
+
+    lateinit var adView: AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_details_stats)
 
         val playerDetails = intent.getSerializableExtra("playerDetails") as? PlayerDetails
+
+        adView = findViewById<View>(R.id.adPlayerDetailsStats) as AdView
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         val pieChart = PieChart(
             slices = provideSlices(getHeadshots(playerDetails!!)),
