@@ -2,4 +2,5 @@
 <resources>
     <dimen name="header_height">200dp</dimen>
     <dimen name="rankDimension">32dp</dimen>
+    <dimen name="warbox_height">80dp</dimen>
 </resources>

@@ -74,6 +74,15 @@
     <string name="banner_ad_unit_id_test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ad_player_details" translatable="false">ca-app-pub-3660065570474827/7871852014</string>
     <string name="ad_player_stats" translatable="false">ca-app-pub-3660065570474827/9626403923</string>
+    <string name="warface_dollars">Warface Dollars</string>
+    <string name="warface_kredits">Warface Kredits</string>
+    <string name="warface_crown">Warface Crown</string>
+    <string name="open_warbox">Open Warbox</string>
+    <string name="my_warbox">My Warboxes</string>
+    <string name="warbox" translatable="false">Warbox</string>
+    <string name="warbox_image">"Warbox's Image "</string>
+    <string name="buy_box">Buy Box</string>
+    <string name="open_all">Open All</string>
 </resources>
 
 

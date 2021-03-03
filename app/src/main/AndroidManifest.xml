@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.PlayerDetailsStats"></activity>
+        <activity android:name=".ui.warbox.ListWarbox"></activity>
+        <activity android:name=".ui.warbox.OpenWarbox" />
+        <activity android:name=".ui.warbox.MainWarbox" />
+        <activity android:name=".ui.PlayerDetailsStats" />
         <activity android:name=".ui.ClanTop100" />
         <activity android:name=".ui.ClanStats" />
         <activity android:name=".ui.PlayerStats" />
@@ -26,8 +29,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ad_unit_id"/>
-
+            android:value="@string/ad_unit_id" />
     </application>
 
 </manifest>

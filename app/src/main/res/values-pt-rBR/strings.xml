@@ -66,4 +66,12 @@
     <string name="sniper_image_description">Imagem da classe de sniper</string>
     <string name="sed_image_description">Imagem da classe de sed</string>
     <string name="hint_clan_player">Clique no nome do clã para obter detalhes do clã</string>
+    <string name="warface_dollars">GP</string>
+    <string name="warface_kredits">Kredits</string>
+    <string name="warface_crown">Crown</string>
+    <string name="open_warbox">Abrir Warbox</string>
+    <string name="my_warbox">Minhas Warbox</string>
+    <string name="warbox_image">Imagem da Warbox</string>
+    <string name="buy_box">Comprar Warbox</string>
+    <string name="open_all">Abrir Todas</string>
 </resources>

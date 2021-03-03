@@ -1,0 +1,11 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selected" android:oneshot="true">
+    <item android:drawable="@drawable/wb1" android:duration="500" />
+    <item android:drawable="@drawable/wb2" android:duration="50" />
+    <item android:drawable="@drawable/wb3" android:duration="50" />
+    <item android:drawable="@drawable/wb4" android:duration="50" />
+    <item android:drawable="@drawable/wb5" android:duration="50" />
+    <item android:drawable="@drawable/wb6" android:duration="50" />
+    <item android:drawable="@drawable/wb7" android:duration="50" />
+    <item android:drawable="@drawable/wb8" android:duration="50" />
+</animation-list>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nomad.wfstats.R
+import com.nomad.wfstats.ui.warbox.MainWarbox
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_Clan_Top_100.setOnClickListener {
             val i = Intent(this, ClanTop100::class.java)
+            startActivity(i)
+        }
+        btn_Warbox.setOnClickListener {
+            val i = Intent(this, MainWarbox::class.java)
             startActivity(i)
         }
     }
