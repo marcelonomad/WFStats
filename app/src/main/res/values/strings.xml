@@ -83,6 +83,9 @@
     <string name="warbox_image">"Warbox's Image "</string>
     <string name="buy_box">Buy Box</string>
     <string name="open_all">Open All</string>
+    <string name="get_prizes">Get Prizes</string>
+    <string name="warbox_prize" >prize </string>
+
 </resources>
 
 

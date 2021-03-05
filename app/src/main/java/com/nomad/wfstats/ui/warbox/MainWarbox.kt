@@ -1,5 +1,6 @@
 package com.nomad.wfstats.ui.warbox
 
+import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,10 @@ class MainWarbox : AppCompatActivity() {
         anim.start()*/
 
         btnMyWarbox.setOnClickListener {
+        }
+        btnOpenWarbox.setOnClickListener {
+            val i = Intent(this, OpenWarbox::class.java)
+            startActivity(i)
         }
     }
 }
